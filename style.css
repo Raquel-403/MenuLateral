@@ -1,0 +1,121 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+body{
+    font-family: Arial, Helvetica, sans-serif;
+    display: flex;
+    min-height: 100vh;
+    transition: backgroud 0.5s, color 0.5s ;
+}
+.page{
+    display: flex;
+    width: 100%;
+    background: #f9f9f9;
+    color: #333;
+}
+.sidebar{
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    width: 60px;
+    background: #fff;
+    padding-top:20px ;
+    transition: width 0.5s, backgroud 0.5s;
+}
+.sidebar:hover{
+    width: 200px;
+}
+.sidebar ul{
+    list-style: none;
+}
+.sidebar ul li{
+    padding: 15px;
+    display: flex;
+    align-items: center;
+    cursor: pointer;
+    transition: backgroud 0.3s;
+}
+.sidebar ul li:hover{
+    font-weight: bold;
+    color: #fff;
+    background: #7D33FF;
+    border-radius: 10px;
+}
+.sidebar ul li i{
+    margin-right: 15px;
+}
+.sidebar:not(:hover) span{
+    display: none;
+}
+.content{
+    flex-grow: 1;
+    padding: 20px;
+}
+#darkMode{
+    display: none;
+}
+.toggle-container{
+    display: flex;
+    justify-content: center;
+    padding: 15px;
+    cursor: pointer;
+}
+.toggle-switch{
+    width: 50px;
+    height: 25px;
+    background: #ccc;
+    border-radius: 25px;
+    position: relative;
+    transition: backgroud 0.5s;
+}
+.toggle-switch::before{
+    content: "\f185";
+    font-family: "Font Awesome 6 Free";
+    font-weight: 900;
+    position: absolute;
+    left: 5px;
+    top: 50%;
+    transform: translateY(-50%);
+    color: black;
+    transition: left 0.5s, color 0.5s;
+}
+#darkMode:checked ~ .page{
+    background: #121212;
+    color: #fff;
+} 
+
+#darkMode:checked ~ .page .sidebar{
+    background: #1a1a1a;
+    
+} 
+#darkMode:checked ~ .page .sidebar ul li:hover{
+    background: #fff;
+    color: black;
+} 
+#darkMode:checked ~ .page .content{
+    background: #181818;
+
+} 
+#darkMode:checked + .page .toggle-container .toggle-switch{
+    background: #555;
+}
+#darkMode:checked + .page .toggle-container .toggle-switch::before{
+    content: "\f186";
+    left: 25px;
+    color: white;
+}
+h1{
+    font-size: 28px;
+    font-weight: bold;
+    text-align: center;
+    padding: 10px;
+    border-bottom: 2px solid #007bff;
+}
+p{
+    font-size: 16px;
+    text-align: justify;
+    line-height: 1.5;
+    padding: 10px;
+}
